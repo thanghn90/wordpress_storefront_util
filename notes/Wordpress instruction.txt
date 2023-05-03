@@ -1,0 +1,15 @@
+1. Download and install WAMP (default settings, just hit next buttons):
+https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/wampserver3.3.0_x64.exe/download
+2. Download wordpress:
+https://wordpress.org/latest.zip
+Extract, move "wordpress" directory into C:\wamp64\www\
+3. Start WAMP (desktop icon).
+4. Once WAMP started completely, left-click on WAMP icon near the clock (lower right corner) --> MariaDB --> Note down "Port used by MariaDB" (Default is 3307)
+5. Open browser, navigate to localhost/phpmyadmin/. Server choice: MariaDB, then log in.
+6. On the left panel, click "New". Give a database name like wp_vietrc, then hit "Create".
+7. Navigate to localhost/wordpress. Choose language. Specify database username as root, leave database password blank.
+IMPORTANT!!! Set Database Host to localhost:3307, where 3307 is the MariaDB port written down in step 4.
+8. Set up admin username and password (make sure it's strong - this is the ONLY user that can log in and modify the website + view statistics).
+9. Once wordpress is set up, go to Plugins, choose "Add new", search for "woocommerce", install and activate it.
+10. Choose "Store front" theme. This will ensure it's a shop website.
+More to come...
