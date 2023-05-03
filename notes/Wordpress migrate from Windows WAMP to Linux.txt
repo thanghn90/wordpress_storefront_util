@@ -1,0 +1,6 @@
+https://www.wpbeginner.com/wp-tutorials/how-to-move-wordpress-from-local-server-to-live-site/#manual-method-local-to-live
+Follow method 2. Essentially:
+- Export database in phpmyadmin
+In Linux, there's a command to do it, and I bet in Windows WAMP I can do it too:
+https://wordpress.org/documentation/article/backing-up-your-database/#using-straight-mysql-mariadb-commands
+

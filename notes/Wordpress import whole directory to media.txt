@@ -1,0 +1,7 @@
+Copy folder containing images to wp-content/uploads/
+Install Bulk Media Register plugin
+Choose the folder, then extension (usually jpg, but can be png as well, do it as many times as needed).
+Then hit Search.
+Register.
+
+There are many more folder organization plugins, but mostly for organization purpose rather than making a real folder structure in uploads directory

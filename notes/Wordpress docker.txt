@@ -1,0 +1,15 @@
+20230424 11:13PM: need to wait a while for database to start up before being able to use phpmyadmin or wordpress.
+I didn't think waiting was so important.
+
+Looks like someone is really into making wordpress becoming a docker image!
+So wordpress is on docker hub. Just need to pull it in, set it up, and somehow figure out how to link it with backedup website and database
+Looks like we only need to either "bind mount" or create a volume to point to a specific container's path.
+Some useful link:
+- Wordpress official docker site:
+https://hub.docker.com/_/wordpress
+- Wordpress yaml sample
+https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/wordpress/
+- Wordpress docker multisite
+https://linuxhandbook.com/deploye-multiple-wordpress/
+- phpmyadmin mariadb:
+https://david.dev/how-to-install-mariadb-phpmyadmin-with-docker-compose

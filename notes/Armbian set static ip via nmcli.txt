@@ -1,0 +1,16 @@
+https://www.tecmint.com/nmcli-configure-network-connection/
+- First, need to show connection:
+sudo nmcli con show
+- Then note the connection name (NOT the device name). E.g.
+NAME                UUID                                  TYPE      DEVICE
+Wired connection 1  1d655cfc-6627-3a73-b6d3-6bc6bc17a941  ethernet  eth0
+This mean the connection name is "Wired connection 1"
+- Set ip address, gateway, dns, and dhcp method:
+sudo nmcli con mod "Wired connection 1" ipv4.addresses 192.168.0.101/24
+sudo nmcli con mod "Wired connection 1" ipv4.gateway 192.168.0.1
+sudo nmcli con mod "Wired connection 1" ipv4.dns "8.8.8.8"
+sudo nmcli con mod "Wired connection 1" ipv4.method manual
+
+This will set wired connection 1 to static ip 192.168.0.101.
+- Finally, update nmcli:
+sudo nmcli con up "Wired connection 1"

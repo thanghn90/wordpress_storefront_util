@@ -1,0 +1,25 @@
+Need to disable image downsize $threshold and modify several lines of code related to "add_image_size()" function and $default_size
+Source:
+https://developer.wordpress.org/reference/hooks/big_image_size_threshold/
+https://www.freshtechtips.com/2019/03/prevent-wordpress-creating-multiple-image-sizes.html
+
+1. Modify wp-admin/includes/image.php:
+$threshold = (int) apply_filters( 'big_image_size_threshold', 2560, $imagesize, $file, $attachment_id );
+to:
+$threshold = 0
+This will disable "-scaled" image file name creation and instead use the original image.
+
+2. Modify wp-includes/media.php:
+Under function get_intermediate_image_sizes()
+Change:
+$default_sizes    = array( 'thumbnail', 'medium', 'medium_large', 'large' );
+to:
+$default_sizes    = array();
+This basically ignore all default wordpress image sizes.
+
+Under function _wp_add_additional_image_sizes(),
+Comment out all "add_image_size" statements. This basically disable extra sizes (1536x1536, 2048x2048)
+
+3. Modify wp-content/plugins/woocommerce/includes/class-woocommerce.php:
+Under function public function add_image_sizes()
+Comment out "add_image_size" statement with 'woocommerce_single'. Looks like storefront theme is not using this, only the thumbnail and gallery thumbnail got used.

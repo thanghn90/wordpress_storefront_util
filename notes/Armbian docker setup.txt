@@ -1,0 +1,2 @@
+https://docs.docker.com/engine/install/ubuntu/
+Just follow the instruction. Looks like they fully support ARM64v8 architecture.

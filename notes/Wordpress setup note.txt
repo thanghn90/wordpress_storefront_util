@@ -1,0 +1,12 @@
+For Windows:
+- Need WAMP. Tested with both MySQL and MariaDB, both works with latest Wordpress 6.2. Not sure how it would work with real Linux host.
+Given the outdated nature of Vietnam Hosts, I don't expect it to work directly with MariaDB, but who knows...
+Update 20230419: Ok, MariaDB and MySQL should work interchangably.
+Just make sure to specify the port to either MariaDB or MySQL (default to 3307 and 3306, respectively) when setting up Wordpress the first time, 
+or modify the wp-config.php, "DB_HOST" set to localhost:port
+- The quickest way to set up a shop website is to use WooCommerce + Storefront plugins.
+- Can modify home page to directly load shop page.
+- Need to add a menu to override the default one in primary (desktop) view.
+- Some guide online use Contact Form 7 to design a "Contact us" page that submit an email to the admin.
+- May need to test Jetpack on actual Linux host to see if it works. For now, I'm only interested in speed + CDN.
+- For ads, may need google analytics and tiktok video campaign - maybe later.
