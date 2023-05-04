@@ -8,7 +8,16 @@ If you're running Wordpress in Windows through WAMP, download [disable_unwanted_
 
 To do: write a .sh equivalent of .bat
 
+
 # Backing up Windows' WAMP Wordpress
 This is designed for Windows WAMP Wordpress installation, especially if you're not familiar with Wordpress and want to build it first in Windows, then pay and migrate to a Linux host later. Download [backup_wordpress.bat](https://github.com/thanghn90/wordpress_storefront_util/blob/main/backup_wordpress.bat) and run it as administrator. It will prompt several info related to your Wordpress setup (e.g. wamp64 path, mysql/mariadb database name and credential...), then automatically start wampmanager service if it's not running, dump SQL database, and copy/zip the entire wordpress folder for you. Hopefully you will find this script useful in conjunction with countless instructions regarding wordpress migration online.
 
+Note: after migration, make sure to change wordpress/wp-config.php to point the database host to the right location, and modify "siteurl" and "home" in wp-options table in the database to point to your true website domain.
+Read [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Wordpress%20migrate%20from%20Windows%20WAMP%20to%20Linux.txt) for more detail.
 
+# Set up Wordpress on a Linux host using Docker
+For testing purpose, I converted my android TV box to a Linux server (Armbian - somewhat similar to Ubuntu Server), and write [docker-compose.yml](https://github.com/thanghn90/wordpress_storefront_util/blob/main/docker-compose.yml) script to set up Wordpress and SQL dockers automatically. The idea is not to install Wordpress directly on the host, but rather using docker images to. If you know about Docker, you will understand why it's handy.
+
+Read [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Armbian%20docker%20setup.txt), [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Armbian%20set%20static%20ip%20via%20nmcli.txt) and [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Wordpress%20docker.txt) for more detail.
+
+To do: add Let's encrypt docker module to enable SSL authentication for "https" connection. Only relevant if you want to set up everything from scratch using Docker. If you're using a Linux host's inbuilt Wordpress manager, you probably don't even need to know these detail.
