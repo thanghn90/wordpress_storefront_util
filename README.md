@@ -18,6 +18,10 @@ Read [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/mai
 # Set up Wordpress on a Linux host using Docker
 For testing purpose, I converted my android TV box to a Linux server (Armbian - somewhat similar to Ubuntu Server), and write [docker-compose.yml](https://github.com/thanghn90/wordpress_storefront_util/blob/main/docker-compose.yml) script to set up Wordpress and SQL dockers automatically. The idea is not to install Wordpress directly on the host, but rather using docker images to. If you know about Docker, you will understand why it's handy.
 
+Important: the wp_data and maria_db directories are "visible" to the wordpress and mariadb docker images, so that changes made to wordpress and SQL database will persist after you turn off docker. They are also the two main locations for migration: the wp_data is essentially migrated from the wordpress directory (default is C:\wamp64\www\wordpress) and the maria_db is migrated from the SQL data directory (default is C:\wamp64\bin\mariadb\mariadb10.10.2\data).
+
 Read [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Armbian%20docker%20setup.txt), [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Armbian%20set%20static%20ip%20via%20nmcli.txt) and [this note](https://github.com/thanghn90/wordpress_storefront_util/blob/main/notes/Wordpress%20docker.txt) for more detail.
 
-To do: add Let's encrypt docker module to enable SSL authentication for "https" connection. Only relevant if you want to set up everything from scratch using Docker. If you're using a Linux host's inbuilt Wordpress manager, you probably don't even need to know these detail.
+To do:
+- Add Let's encrypt docker module to enable SSL authentication for "https" connection. Only relevant if you want to set up everything from scratch using Docker. If you're using a Linux host's inbuilt Wordpress manager, you probably don't even need to know these detail.
+- Find a way to use git to commit changes to wp_data and mariadb on a free git repo (such as amazon codecommit, or even github if enough space). Essentially I want to use git as a backup mechanism, instead of having multiple backup versions that overlap each other.
